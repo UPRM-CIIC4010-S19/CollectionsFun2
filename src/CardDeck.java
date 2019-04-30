@@ -22,6 +22,10 @@ public class CardDeck {
 	}
 	
 	public String getQueueCard() {
+		
+		for(int i = 0; i < qdeck.size()-1; i++) {
+			qdeck.add(qdeck.poll());
+		}
 		return qdeck.poll();
 	}
 	

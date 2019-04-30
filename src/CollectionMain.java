@@ -10,28 +10,35 @@ public class CollectionMain {
 	
 	public static void main(String[] args) {
 		
-		SortedSet<String> setA = new TreeSet<String>(new Comparator<String> () {
-			public int compare(String a, String b) {
-				return -a.compareTo(b);
-			}
-		});
 		
-		setA.addAll(Arrays.asList("A", "B", "C"));
-		SortedSet<String> setB = new TreeSet<String>(Arrays.asList("B", "C", "D"));
+		try {
+			MorseCode mc = new MorseCode();
+			
+			System.out.print(mc.encodeWord("BienveComoEstas"));
+			
+		} catch(LetterNotFoundExeception e) {
+			System.out.println(e.toString());
+		}
+		CardDeck cd = new CardDeck();
+
+		cd.addCard("Joker");
+		cd.addCard("Queen");
+		cd.addCard("King");
+		cd.addCard("10");
 		
-		System.out.println("A="+setA);
-		System.out.println("B="+setB);
+		int ssize = cd.getStackSize();
 		
-		Set<String> setC = new HashSet<String>(setA);
-		setC.addAll(setB);
-		System.out.println("A U B="+setC);
+		for(int i = 0; i < ssize; i++) {
+			System.out.println("Card: " + cd.getStackCard() + ". Cards Left: " + cd.getStackSize());
+		}
 		
-		Set<String> setD = new HashSet<String>(setA);
-		setD.retainAll(setB);
-		System.out.println("A intersected with B="+setD);
+		System.out.println();
+	
+		int qsize = cd.getQueueSize();
 		
-		System.out.println("First in A is:"+setA.first());
-		System.out.println("Last in A is:"+setA.last());
+		for(int i = 0; i < qsize; i++) {
+			System.out.println("Card: " + cd.getQueueCard() + ". Cards Left: " + cd.getQueueSize());
+		}
 		
 	}
 

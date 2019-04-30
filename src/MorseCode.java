@@ -21,8 +21,15 @@ public class MorseCode {
 		letterToMorse.put('V', "..._");
 	}
 	
-	public String encodeWord(String word) {		
-		return "";
+	public String encodeWord(String word) throws LetterNotFoundExeception {		
+		String result = "";
+		for(int i = 0; i < word.length(); i++) {
+			if(letterToMorse.containsKey(Character.toUpperCase(word.charAt(i)))) 
+				result +=  letterToMorse.get(Character.toUpperCase(word.charAt(i))) + " ";
+			else
+				throw new LetterNotFoundExeception(word.charAt(i));
+		}
+		return result;
 	}
 	
 }
