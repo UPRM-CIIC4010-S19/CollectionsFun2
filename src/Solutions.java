@@ -7,9 +7,11 @@ public class Solutions {
 	// Main
 	
 //	MorseCode mc = new MorseCode();
-//	
-//	System.out.println(mc.encodeWord("BIENVENIDO VELEZ"));
-//	
+//	try {
+//		System.out.println(mc.encodeWord("BIENVENIDO VELEZ"));
+//	} catch(LetterNotFoundExeception e) {	
+//		System.out.println(e.toString());
+//	}
 //	CardDeck cd = new CardDeck();
 //	
 //	cd.addCard("Joker");
